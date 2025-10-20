@@ -1,0 +1,14 @@
+@import './vars.scss';
+@import './reset.scss';
+/* @import '../components/Button/style.css'; */
+@import '../components/Button/style1.scss';
+@import '../components/Collapse/style.scss';
+@import '../components/Icon/style.scss';
+@import '../components/Alert/style.scss';
+@import '../components/ToolTip/style.scss';
+@import '../components/Dropdown/style.scss';
+@import '../components/Message/style.scss';
+@import '../components/Input/style.scss';
+@import '../components/Switch/style.scss';
+@import '../components/Select/style.scss';
+@import '../components/Form/style.scss';

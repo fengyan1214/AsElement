@@ -1,0 +1,49 @@
+.as-form {
+  --as-form-label-font-size: var(--as-font-size-base);
+  --as-form-content-font-size: var(--as-font-size-base);
+}
+.as-form-item {
+  display: flex;
+  margin-bottom: 18px;
+  .as-form-item__label {
+    width: 150px;
+    height: 32px;
+    line-height: 32px;
+    padding: 0 12px 0 0;
+    box-sizing: border-box;
+    display: inline-flex;
+    justify-content: flex-end;
+    font-size: var(--as-form-label-font-size);
+    color: var(--as-text-color-regular);
+  }
+  .as-form-item__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    flex: 1;
+    line-height: 32px;
+    font-size: var(--as-form-content-font-size);
+    min-width: 0;
+    position: relative;
+  }
+  .as-form-item__error-msg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding-top: 2px;
+    color: var(--as-color-danger);
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+.as-form-item.is-error .as-input__wrapper {
+  box-shadow: 0 0 0 1px var(--as-color-danger) inset;
+}
+.as-form-item.is-success .as-input__wrapper {
+  box-shadow: 0 0 0 1px var(--as-color-success) inset;
+}
+.as-form-item.is-required > .as-form-item__label::before {
+  content: '*';
+  color: var(--as-color-danger);
+  margin-right: 4px;
+}

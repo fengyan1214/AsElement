@@ -1,0 +1,15 @@
+.as-icon {
+  --as-icon-color: inherit;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  fill: currentColor;
+  color: var(--as-icon-color);
+  font-size: inherit;
+}
+@each $val in primary, success, info, warning, danger {
+  .as-icon--#{$val} {
+    --as-icon-color: var(--as-color-#{$val});
+  }
+}

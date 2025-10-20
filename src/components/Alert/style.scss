@@ -1,0 +1,40 @@
+.as-alert {
+  --as-alert-content-font-size: var(--as-font-size-base);
+  --as-alert-bg-color: var(--as-color-info-light-9);
+  --as-alert-color: var(--as-color-info-dark-2);
+  --as-alert-close-button-color: var(--as-text-color-placeholder);
+  width: 100%;
+  line-height: 1.5;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  opacity: 1;
+  background-color: var(--as-alert-bg-color);
+  color: var(--as-alert-color);
+  .as-alert__content {
+    font-size: var(--as-alert-content-font-size);
+    display: flex;
+    position: relative;
+    .as-alert__close {
+      position: absolute;
+      color: var(--as-alert-close-button-color);
+      top: 0;
+      right: 0;
+    }
+  }
+}
+@each $val in primary, success, info, warning, danger {
+  .as-alert.as-alert-#{$val} {
+    --as-alert-bg-color: var(--as-color-#{$val}-light-9);
+    --as-alert-color: var(--as-color-#{$val}-dark-2);
+    &.is-dark {
+      --as-alert-bg-color: var(--as-color-#{$val}-dark-2);
+      --as-alert-color: #fff;
+      --as-alert-close-button-color: #fff;
+    }
+  }
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity var(--as-transition-duration);
+}
