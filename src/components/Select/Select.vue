@@ -156,7 +156,7 @@ const createFilteredOptions = async () => {
         return
     }
     if (props.filterMethod && typeof props.filterMethod === 'function') {
-        filteredOptions.value = props.filterMethod(states.inputValue)
+        props.filterMethod(states.inputValue)
     }
     else if (props.remote && props.remoteMethod && typeof props.remoteMethod === 'function') {
         states.loading = true

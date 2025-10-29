@@ -18,6 +18,7 @@ watch(() => props.modelValue, (newVal) => {
 
 const checked = computed(() => innerValue.value === props.activeValue)
 const switchValue = () => {
+    if (props.disabled) return
     innerValue.value = innerValue.value === props.activeValue ? props.inactiveValue : props.activeValue
     emits('update:modelValue', innerValue.value)
     emits('change', innerValue.value)

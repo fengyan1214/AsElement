@@ -1,3 +1,4 @@
+<!-- eslint-disable @typescript-eslint/no-explicit-any -->
 <script setup lang="ts">
 import { ref, h } from 'vue'
 import type { SelectOption } from './components/Select/types';
@@ -6,6 +7,7 @@ import FormItem from './components/Form/FormItem.vue';
 import Select from './components/Select/Select.vue';
 import Input from './components/Input/Input.vue';
 import type { FormExpose, FormItemExpose } from './components/Form/types';
+import Alert from './components/Alert/Alert.vue';
 
 const inputVal = ref('')
 const options = [
@@ -60,7 +62,7 @@ const rules = ref({
   ],
   confirmPassword: [
     { required: true, message: '请确认密码', trigger: 'blur' },
-    { validator: (rule, value) => value === model.value.password, message: '两次输入密码不一致', trigger: 'blur' },
+    { validator: (rule: any, value: string) => value === model.value.password, message: '两次输入密码不一致', trigger: 'blur' },
   ],
 })
 const formRef = ref<FormExpose>()
@@ -94,12 +96,14 @@ const passwordFormItem = ref<FormItemExpose>()
 
       <FormItem>
         <button @click.prevent="submit">提交</button>
+        <button @click.prevent="formRef?.validate">校验</button>
         <button @click.prevent="() => formRef?.resetFields()">重置</button>
         <button @click.prevent="() => formRef?.clearValidate()">清除校验</button>
         <button @click.prevent="() => passwordFormItem?.resetField()">重置密码</button>
       </FormItem>
     </Form>
   </div>
+  <Alert content="成功" type="success" effect="dark" />
 </template>
 
 <style scoped></style>
