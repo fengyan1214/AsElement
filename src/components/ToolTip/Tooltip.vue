@@ -150,9 +150,7 @@ defineExpose<TooltipExpose>({
             <slot></slot>
         </div>
         <!-- 展示区 -->
-        <!-- 动画结束后注意销毁popperInstance实例 -->
-        <Transition :name="transition" @after-leave="popperInstance?.destroy()"
-            @leave-cancelled="popperInstance?.destroy()">
+        <Transition :name="transition">
             <div v-if="isOpen" class="as-tooltip__popper" ref="popperNode">
                 <slot name="content">{{ content }}</slot>
                 <div id="arrow" data-popper-arrow></div>
